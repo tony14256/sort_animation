@@ -14,7 +14,10 @@ function bubbleSort(data) {
           .attr("x", (20 + 5) * (i - 1));
         d3.timeout(() => sort(++i), 500);
       } else if (i === data.length) {
-        data.pop();
+        for (let n = i; n === data[n - 1]; n--) {
+          console.log(n, data[n - 1]);
+          data.pop();
+        }
         sort(i++);
       } else {
         sort(++i);
