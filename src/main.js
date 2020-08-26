@@ -3,7 +3,7 @@ const bubble = require("./lib/bubble");
 
 // 隨機排序
 const arr = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
+console.log(arr);
 class Chart {
   constructor(opt) {
     this.data = opt.data;
@@ -36,7 +36,6 @@ class Chart {
       .attr("width", 20)
       .attr("fill", "red");
   }
-  // [this.data[i], this.data[j]] = [this.data[j], this.data[i]];
 
   swap(i, j) {
     const temp = this.data[i].x;
@@ -44,9 +43,8 @@ class Chart {
     this.data[j].x = temp;
 
     this.selectRects()
-      .data(this.data)
+      .data([...this.data])
       .transition()
-      .delay(200)
       .duration(500)
       .attr("x", (d) => (20 + 5) * d.x);
   }
@@ -54,7 +52,7 @@ class Chart {
 
 const chart = new Chart({
   element: document.querySelector("#main"),
-  data: arr,
+  data: JSON.parse(JSON.stringify(arr)),
 });
 
 chart.draw();
