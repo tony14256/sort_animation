@@ -1,15 +1,30 @@
-function bubbleSort() {
-  const length = this.data.length;
-  if (length > 0) {
-    for (let i = 0; i < length - 1; i++) {
-      for (let j = 0; j < length - i - 1; j++) {
-        if (this.data[j].height > this.data[j + 1].height) {
-          this.swap(j, j + 1);
-        }
+function bubbleSort(data) {
+  const sort = (i) => {
+    if (data.length === 0) return;
+    if (i <= data.length) {
+      if (data[i] < data[i - 1]) {
+        [data[i], data[i - 1]] = [data[i - 1], data[i]];
+        d3.select(`#rect${data[i]}`)
+          .transition()
+          .duration(500)
+          .attr("x", (20 + 5) * i);
+        d3.select(`#rect${data[i - 1]}`)
+          .transition()
+          .duration(500)
+          .attr("x", (20 + 5) * (i - 1));
+        d3.timeout(() => sort(++i), 500);
+      } else if (i === data.length) {
+        data.pop();
+        sort(i++);
+      } else {
+        sort(++i);
       }
+    } else {
+      bubbleSort(data);
     }
-    console.log(this.data);
-  }
+  };
+
+  sort(1);
 }
 
 module.exports = bubbleSort;
