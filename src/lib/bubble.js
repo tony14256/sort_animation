@@ -3,6 +3,14 @@ function bubbleSort(data) {
     if (data.length === 0) return;
     if (i <= data.length) {
       if (data[i] < data[i - 1]) {
+        d3.select(`#rect${data[i]}`).attr("fill", "blue");
+        d3.select(`#rect${data[i - 1]}`).attr("fill", "blue");
+
+        d3.timeout(function () {
+          d3.select(`#rect${data[i]}`).attr("fill", "red");
+          d3.select(`#rect${data[i - 1]}`).attr("fill", "red");
+        }, 500);
+
         [data[i], data[i - 1]] = [data[i - 1], data[i]];
         d3.select(`#rect${data[i]}`)
           .transition()
@@ -15,7 +23,7 @@ function bubbleSort(data) {
         d3.timeout(() => sort(++i), 500);
       } else if (i === data.length) {
         for (let n = i; n === data[n - 1]; n--) {
-          console.log(n, data[n - 1]);
+          d3.select(`#rect${n}`).attr("fill", "blue");
           data.pop();
         }
         sort(i++);
