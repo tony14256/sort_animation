@@ -29,6 +29,16 @@ rects
   .attr("width", 20)
   .attr("height", (d) => scale(d));
 
-bubble(dataSet);
+const btns = d3.select("#buttons");
+
+btns
+  .append("button")
+  .text("bubble sort")
+  .on("click", () => bubble(dataSet));
+
+btns
+  .append("button")
+  .text("quick sort")
+  .on("click", () => quick(dataSet));
 
 // quick(dataSet);
