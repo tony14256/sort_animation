@@ -1,5 +1,6 @@
 const shuffle = require("./lib/shuffle");
 const bubble = require("./lib/bubble");
+const quick = require("./lib/quick");
 
 const dataSet = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
@@ -27,4 +28,6 @@ rects
   .attr("width", 20)
   .attr("height", (d) => scale(d));
 
-bubble(dataSet);
+// bubble(dataSet);
+
+quick(dataSet);
