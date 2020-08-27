@@ -25,9 +25,10 @@ const rects = svg
 rects
   .attr("id", (d) => `rect${d}`)
   .attr("x", (_, i) => (20 + 5) * i)
+  .attr("y", (d) => height - scale(d))
   .attr("width", 20)
   .attr("height", (d) => scale(d));
 
-// bubble(dataSet);
+bubble(dataSet);
 
-quick(dataSet);
+// quick(dataSet);

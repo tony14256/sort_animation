@@ -3,8 +3,8 @@ function bubbleSort(data) {
     if (data.length === 0) return;
     if (i <= data.length) {
       if (data[i] < data[i - 1]) {
-        d3.select(`#rect${data[i]}`).attr("fill", "blue");
-        d3.select(`#rect${data[i - 1]}`).attr("fill", "blue");
+        d3.select(`#rect${data[i]}`).attr("fill", "green");
+        d3.select(`#rect${data[i - 1]}`).attr("fill", "green");
 
         d3.timeout(function () {
           d3.select(`#rect${data[i]}`).attr("fill", "red");
