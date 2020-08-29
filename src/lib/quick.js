@@ -1,6 +1,5 @@
-function quickSort(data) {
-  console.log(data);
-  sort(data, 1, 0);
+function QuickSort(data) {
+  const d = sort(data, 1, 0);
 }
 
 const sort = (data, time, offset) => {
@@ -51,7 +50,7 @@ const sort = (data, time, offset) => {
     }, 500);
   }
 
-  // return left.concat([p]).concat(right);
+  return left.concat([p]).concat(right);
 };
 
-module.exports = quickSort;
+export default QuickSort;
