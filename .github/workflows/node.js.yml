@@ -37,10 +37,10 @@ jobs:
           echo 🤘 build.
           git init
           echo 🤘 git init.
-          git config --global user.email ${{USER_EMAIL}}
-          git config --global user.name ${{USER_NAME}}
+          git config --global user.email $USER_EMAIL
+          git config --global user.name $USER_NAME
           git status
-          git remote add origin https://${{COMMIT_SECRET}}@github.com/${{USER_NAME}}/sort_animation.git
+          git remote add origin https://$COMMIT_SECRET@github.com/$USER_NAME/sort_animation.git
           git checkout -b gh-pages
           git add --all
           git commit -m "Deploy Next.js to gh-pages" 
