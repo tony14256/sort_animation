@@ -48,7 +48,7 @@ class SortAlgo {
     btns
       .append("button")
       .text("merge sort")
-      .on("click", () => merge(this.data));
+      .on("click", () => console.log(merge(this.data)));
   }
 
   genChart() {
